@@ -1,0 +1,571 @@
+/* モーダルウィンドウ */ 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-header{
+  font-size: 200%;
+  font-weight: bold;
+}
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 10% auto;
+  width: 50%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+.modal-body {
+  color: black;
+  font-size: 230%;
+  font-weight: bold;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+/* モーダル内ボタン */
+.selectreturn-btn{
+  color: rgb(0, 0, 0);
+  background-color: #faa6a6;
+  font-size: 200%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+.callyes-btn{
+  color: rgb(0, 0, 0);
+  background-color: #faa6a6;
+  font-size: 200%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+.callno-btn{
+  color: rgb(0, 0, 0);
+  background-color: #a6a6fa;
+  font-size: 200%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* positionの親 */
+body{
+  position: relative;
+  padding: 5px;
+  padding-left: 10px;
+  text-align: center;
+  background: linear-gradient(to right, rgb(255, 99, 99, 0.54), rgb(250, 255, 99, 0.54), rgb(99, 255, 107, 0.54), rgb(99, 177, 255, 0.54), rgb(206, 99, 255, 0.54));
+  background-size: 800% 800%;
+  animation: GradietionAnimation 100s ease infinite;
+}  
+@keyframes GradietionAnimation { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* ID選択ボタン */
+.theirID-btn{
+  position: fixed;
+  bottom: 2%;
+  left: 40%;
+  font-size: 170%;
+  width: 23%;
+  color: rgb(0, 0, 0);
+  background-color: #68d74a;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+  word-wrap: break-word;
+}
+/* モーダル内のID一覧 */
+.theirID{
+  font-size: 150%;
+}
+/* ラジオボタンの大きさ */
+input[type=radio] {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+/* 自分のID */
+.h5{
+  position: fixed;
+  bottom: 1%;
+  left: 15%;
+  padding: 5px;
+  border: solid;
+  border:3px solid;
+  border-radius:8px;
+  display:inline-block;
+  background-color: white;
+  font-size: 130%;
+  width: 300px;
+  word-wrap: break-word;
+} 
+
+/* 通話時間タイマー */
+.Vtimer{
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  font-size: 180%;
+}
+
+/* 発信/終了ボタンなどの列 */
+.Peer{
+  font-size: 22px;
+}
+
+/* 相手のビデオ映像 */
+.thier-video{
+  height: 45vh;
+  overflow: hidden;
+}
+.thier-video > video{
+  position: fixed;
+  top: 23%;
+  left: 5%;
+  width: 550px;
+  height: 380px;
+  border:6px solid;
+  border-radius:8px;
+  display:inline-block;
+  border-color:darkblue;
+  background-color: white;
+}
+/* 自分のビデオ映像 */
+.my-video{
+  height: 45vh;
+  overflow: hidden;
+}
+.my-video > video{
+  position: fixed;
+  top: 23%;
+  right: 5%;
+  width: 550px;
+  height: 380px;
+  border:6px solid;
+  border-radius:8px;
+  display:inline-block;
+  border-color:chocolate;
+  background-color: white;
+}
+
+/* ID指定ボタン */
+.turn-btn{
+  position: fixed;
+  left: 1%;
+  top: 12%;
+  color: rgb(0, 0, 0);
+  background-color: #faa6a6;
+  font-size: 200%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* 発信/終了ボタン */
+.call{
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+.call-btn{
+  color: rgb(0, 0, 0);
+  background-color: #00ffbb;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+.callend-btn{
+  color: rgb(0, 0, 0);
+  background-color: #fda643;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* チャット */
+.yes-no{
+  text-align: right;
+  vertical-align: top;
+}
+/* チャットメッセージ */
+.messages{
+  position: fixed;
+  width: 70%;
+  height: 10%;
+  overflow-y: auto;
+  text-align: left;
+  font-weight: bold;
+  font-size: 200%;
+  background-color:rgb(247, 219, 183);
+  border: 1px solid rgb(255, 142, 61);
+  margin-bottom: 0px;
+}
+.chatB{
+  font-size: 130%;
+}
+/* チャット関連ボタン */
+.chat{
+  position: fixed;
+  right: 1%;
+  top: 12%;
+  font-size: 22px;
+}
+.text-btn{
+  color: rgb(0, 0, 0);
+  background-color: #00ffbb;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+.voice-btn{
+  color: rgb(0, 0, 0);
+  background-color: #619ffd;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* リアクションボタン */
+.reac{
+  position: fixed;
+  right: 1%;
+  top: 0%;
+  margin-top: 5px;
+  font-size: 22px;
+}
+.yes-btn{
+  color: rgb(0, 0, 0);
+  background-color: #ff64d3;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+.soso-btn{
+  color: rgb(0, 0, 0);
+  background-color: #85fffb;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+.no-btn{
+  color: rgb(0, 0, 0);
+  background-color: hsl(259, 100%, 77%);
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* ミュート切り替えボタン */
+.mic-btn{
+  position: fixed;
+  left: 1%;
+  bottom: 2%;
+  color: rgb(0, 0, 0);
+  background-color: #619ffd;
+  font-size: 150%;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* ウィンドウ高さに合わせて調整 */
+@media screen and (min-height: 710px){
+  .thier-video > video{
+    height: 470px;
+  }
+  .my-video > video{
+    height: 470px;
+  }
+}
+@media screen and (min-height: 680px){
+  .thier-video > video{
+    height: 430px;
+  }
+  .my-video > video{
+    height: 430px;
+  }
+}
+@media screen and (max-height: 600px){
+  .thier-video > video{
+    height: 350px;
+  }
+  .my-video > video{
+    height: 350px;
+  }
+}
+@media screen and (max-height: 550px){
+  .thier-video > video{
+    height: 320px;
+  }
+  .my-video > video{
+    height: 320px;
+  }
+  .chat{
+    top: 13%;
+  }
+  .modal {
+    top: -10%;
+    height: 110%;
+  }
+}
+@media screen and (max-height: 500px){
+  .thier-video > video{
+    top: 25%;
+    height: 280px;
+  }
+  .my-video > video{
+    top: 25%;
+    height: 280px;
+  }
+  .modal {
+    top: -30%;
+    height: 130%;
+  }
+}
+@media screen and (max-height: 450px){
+  .thier-video > video{
+    top: 27%;
+    height: 230px;
+  }
+  .my-video > video{
+    top: 27%;
+    height: 230px;
+  }
+  .chat{
+    top: 14%;
+  }
+}
+
+/* ウィンドウ幅に合わせて調整 */
+@media screen and (max-width: 1700px){
+  .thier-video > video{
+    width: 670px;
+  }
+  .my-video > video{
+    width: 670px;
+  }
+  .Peer{
+    font-size: 30px;
+  }
+  .chat{
+    font-size: 28px;
+  }
+  .reac{
+    font-size: 28px;
+  }
+  .turn-btn{
+    font-size: 260%;
+  }
+  .messages{
+    width: 70%;
+  }
+  .h5{
+    width: 300px;
+  } 
+  .theirID-btn{
+    font-size: 180%;
+  }
+  .Vtimer{
+    font-size: 250%;
+  }
+}
+@media screen and (max-width: 1500px){
+  .thier-video > video{
+    width: 600px;
+  }
+  .my-video > video{
+    width: 600px;
+  }
+  .Peer{
+    font-size: 25px;
+  }
+  .chat{
+    font-size: 24px;
+  }
+  .reac{
+    font-size: 24px;
+  }
+  .turn-btn{
+    font-size: 200%;
+  }
+  .messages{
+    width: 70%;
+    font-size: 230%;
+  }
+  .h5{
+    width: 260px;
+    left: 17%;
+    bottom: 0.2%;
+  } 
+  .theirID-btn{
+    width: 25%;
+  }
+  .Vtimer{
+    font-size: 220%;
+    left: 13%;
+  }
+  .modal-header{
+    font-size: 250%;
+  }
+  .modal{
+    top: -30px;
+    height: 130%;
+  }
+}
+@media screen and (max-width: 1300px){
+  .thier-video > video{
+    width: 550px;
+  }
+  .my-video > video{
+    width: 550px;
+  }
+}
+@media screen and (max-width: 1250px){
+  .thier-video > video{
+    width: 500px;
+  }
+  .my-video > video{
+    width: 500px;
+  }
+  .h5{
+    width: 230px;
+  } 
+  .modal-header{
+    font-size: 230%;
+  }
+}
+@media screen and (max-width: 1130px){
+  .thier-video > video{
+    width: 470px;
+  }
+  .my-video > video{
+    width: 470px;
+  }
+  .messages{
+    width: 65%;
+  }
+  .Peer{
+    font-size: 23px;
+  }
+  .chat{
+    font-size: 23px;
+  }
+  .reac{
+    font-size: 23px;
+  }
+}
+@media screen and (max-width: 1080px){
+  .thier-video > video{
+    width: 450px;
+  }
+  .my-video > video{
+    width: 450px;
+  }
+  .modal-header{
+    font-size: 200%;
+  }
+  .modal-body {
+    font-size: 200%;
+  }
+}
+@media screen and (max-width: 1020px){
+  .thier-video > video{
+    width: 430px;
+  }
+  .my-video > video{
+    width: 430px;
+  }
+  .Peer{
+    font-size: 20px;
+  }
+  .theirID-btn{
+    left: 41%;
+  }
+}
+@media screen and (max-width: 960px){
+  .thier-video > video{
+    width: 400px;
+  }
+  .my-video > video{
+    width: 400px;
+  }
+  .theirID-btn{
+    left: 42%;
+    font-size: 160%;
+    width: 20%;
+  }
+  .Peer{
+    font-size: 21px;
+  }
+  .chat{
+    font-size: 21px;
+  }
+  .reac{
+    font-size: 21px;
+  }
+  .turn-btn{
+    font-size: 190%;
+  }
+  .messages{
+    width: 60%;
+    font-size: 180%;
+  }
+  .chatB{
+    font-size: 115%;
+  }
+  .Vtimer{
+    font-size: 170%;
+    left: 12%;
+    top: 12%;
+    width: 18%;
+  }
+  .h5{
+    width: 190px;
+    left: 18%;
+  } 
+  .modal-header{
+    font-size: 250%;
+  }
+  .modal-body {
+    font-size: 170%;
+  }
+}
+@media screen and (max-width: 900px){
+  .thier-video > video{
+    width: 380px;
+  }
+  .my-video > video{
+    width: 380px;
+  }
+  .Peer{
+    font-size: 19px;
+  }
+  .chat{
+    font-size: 19px;
+  }
+  .reac{
+    font-size: 19px;
+  }
+  .turn-btn{
+    font-size: 160%;
+  }
+  .messages{
+    width: 63%;
+  }
+  .Vtimer{
+    left: 14%;
+  }
+  .modal-content {
+    margin: 10% auto;
+    width: 60%;
+  }
+}

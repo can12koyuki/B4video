@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビデオ通話</title>
+  <script src="https://cdn.webrtc.ecl.ntt.com/skyway-4.4.4.js"></script>      <!-- SkyWayの参照 -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- android端末でchromeのURLバーを非表示にする -->
+  <meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+  <div class="body">
+    <!-- 着信処理モーダルウィンドウ -->
+    <div id="callModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header"><span id="mtitle"></span></div>
+        <div class="modal-body">
+          <h1>通話を開始しますか？</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn callyes-btn" data-bs-dismiss="modal" id="call-yes">はい</button>
+          <button type="button" class="btn callno-btn" id="call-no">いいえ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ID選択モーダルウィンドウ -->
+    <div id="selectModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="theirID" id="their-id">通話相手のIDを選択</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn selectreturn-btn" data-bs-dismiss="modal" id="ret">もどる</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="yes-no">
+      <!-- メッセージ表示 -->
+      <div class="text">
+        <pre class="messages" id="js-messages"></pre>
+      </div>
+
+      <button type="submit" class="btn turn-btn" id="IDname-back" onclick="location.href='./IDname.html'">ID変更</button>     <!-- ID指定画面に戻る -->
+      <h4 class="Vtimer">通話時間：<span id="Vtimer"></span></p>      <!-- 通話時間表示 -->
+
+      <!-- リアクションボタン -->
+      <div class="reac">
+        <div class="btn-group" role="group">
+          <button type="submit" class="btn yes-btn" id="yes">はい</button>
+          <button type="submit" class="btn soso-btn" id="soso">わからない</button>
+          <button type="submit" class="btn no-btn" id="no">いいえ</button>
+        </div>
+      </div>
+      <!-- チャット送信 -->
+      <div class="chat">
+        <div class="input-group" role="group">
+          <input type="text" class="form-control-lg chatB" id="js-local-text" placeholder="チャット内容を入力">
+          <button type="submit" class="btn voice-btn" id="voice-word">音声入力</button>     <!-- 音声入力ボタン -->
+          <button type="submit" class="btn text-btn" id="js-send-trigger">送信📧</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="video">
+      <!-- 受信者側のビデオ表示 --> 
+      <div class="thier-video">
+        <video id="their-video" style="transform: scaleX(-1);" autoplay playsinline></video> 
+      </div>
+      <!-- 発信者側のビデオ表示 -->
+      <div class="my-video">
+        <video id="my-video" style="transform: scaleX(-1);" autoplay muted playsinline></video>
+      </div> 
+    </div>
+      
+    <div class="Peer">
+      <from class="row align-items-center">
+        <div class="coll-auto">
+          <button type="submit" class="btn mic-btn" id="mute">マイクオン</button>     <!-- ミュート切り替えボタン -->
+          <p class="h5">あなたのID:<span id="my-id"></span></p>     <!-- 発信者側のPeerID表示 -->
+          <button type="submit" class="btn theirID-btn" id="select-id"><span id="Stitle"></span></button>     <!-- ID選択モーダルの表示 -->
+            <div class="call">
+              <!-- 発信、通話終了ボタン -->
+              <div class="btn-group" role="group">
+                <button type="submit" class="btn call-btn" id="make-call">発信📞</button>
+                <button type="submit" class="btn callend-btn" id="call-end">通話終了☎</button>
+              </div>
+            </div>
+          </div>
+        </from>
+      </div> 
+    </div>
+  
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
+  <script src="./voice.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="./key.js"></script>
+</body>
+</html>

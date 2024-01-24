@@ -1,0 +1,88 @@
+body{
+  position: relative;
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(to right, rgb(255, 99, 99, 0.54), rgb(250, 255, 99, 0.54), rgb(99, 255, 107, 0.54), rgb(99, 177, 255, 0.54), rgb(206, 99, 255, 0.54));
+  background-size: 800% 800%;
+  animation: GradietionAnimation 100s ease infinite;
+}  
+@keyframes GradietionAnimation { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.bod{
+  position: fixed;
+  top: 20%;
+  left: 27%;
+}
+.h1{
+  font-size: 100%;
+  font-weight: bold;
+}
+
+/* ID指定 */
+.idtext{
+  padding: 30px;
+}
+.btn-group{
+  position: fixed;
+  top: 40%;
+  left: 24%;
+}
+.id{
+  font-size: 300%;
+}
+.OKturn-btn {
+  color: rgb(0, 0, 0);
+  background-color: #faa6a6;
+  font-size: 50px;
+  font-weight: bold;
+  border: 2px solid #453a3a;
+}
+
+/* ウィンドウ高さに合わせて調整 */
+@media screen and (max-height: 500px){
+  .btn-group{
+    top: 55%;
+  }
+}
+
+/* ウィンドウ幅に合わせて調整 */
+@media screen and (max-width: 1200px){
+  .bod{
+    left: 23%;
+  }
+  .btn-group{
+    left: 20%;
+  }
+  .id{
+    font-size: 250%;
+  }
+  .OKturn-btn{
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 980px){
+  .id{
+    font-size: 230%;
+  }
+  .OKturn-btn{
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 840px){
+  .bod{
+    left: 15%;
+  }
+  .btn-group{
+    left: 13%;
+  }
+  .id{
+    font-size: 200%;
+  }
+  .OKturn-btn{
+    font-size: 45px;
+  }
+}
